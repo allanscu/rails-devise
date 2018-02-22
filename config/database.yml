@@ -51,11 +51,10 @@ test:
   template: template0
 
 production:
-  adapter:  postgresql
-  host:     localhost
-  encoding: unicode
-  database: rails-devise_production
-  pool:     5
-  username: allanscu
-  password: 
-  template: template0
+  <<: *default
+  host:  <%= ENV['DATABASE_HOST'] %>
+  database: <%= ENV['DATABASE_NAME'] %>
+  username: <%= ENV['DATABASE_USER'] %>
+  port:  <%= ENV['DATABASE_PORT'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  #uri:  <%= ENV['DATABASE_URI'] %>
