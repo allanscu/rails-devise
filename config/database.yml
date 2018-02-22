@@ -51,7 +51,6 @@ test:
   template: template0
 
 production:
-  <<: *default
   host:  <%= ENV['DATABASE_HOST'] %>
   database: <%= ENV['DATABASE_NAME'] %>
   username: <%= ENV['DATABASE_USER'] %>
