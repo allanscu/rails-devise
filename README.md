@@ -38,8 +38,8 @@ Issues
 -------------
 
 This application may have issues when starting up.  To fix this on MacOS X from Terminal:
-	`\curl -sSL https://get.rvm.io | bash -s stable --ruby"`
 	
+	`\curl -sSL https://get.rvm.io | bash -s stable --ruby`
 	`rvm reinstall ruby-2.5.0`
 
 Similar Projects
