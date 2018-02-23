@@ -1,0 +1,60 @@
+<%= form_with(model: item, local: true) do |form| %>
+	<% if item.errors.any? %>
+		<div id="error_explanation">
+		  <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+		  <ul>
+		  <% item.errors.full_messages.each do |message| %>
+		    <li><%= message %></li>
+		  <% end %>
+		  </ul>
+		</div>
+	<% end %>
+
+	<div class="row">
+		<div class="col-md-3">
+			<div class="card" style="width: 20rem;">
+			  <div class="card-block">
+				<% if @item.new_record? %>
+			    	<h4 class="card-title">New item</h4>
+				<% else %>
+					<h4 class="card-title">
+						<b>Edit</b>
+						<span class="thin-text"><%= @item.name %></span>
+					</h4>
+				<% end %>
+			  </div>
+			  <ul class="list-group list-group-flush">
+			    <li class="list-group-item">
+				    <div class="field">
+				      <%= form.label :number %>
+				      <%= form.text_field :number, class: 'form-control' %>
+				    </div>
+			    </li>
+			    <li class="list-group-item">
+				    <div class="field">
+				      <%= form.label :name %>
+				      <%= form.text_field :name, class: 'form-control' %>
+				    </div>
+			    </li>
+			    <li class="list-group-item">
+				    <div class="field">
+				      <%= form.label :description %>
+				      <%= form.text_area :description, class: 'form-control' %>
+				    </div>
+			    </li>
+			    <li class="list-group-item">
+					<div class="actions">
+						<%= form.submit "Save item", class: 'btn btn-success btn-lg btn-block' %>
+					</div>
+			    </li>
+			  </ul>
+			</div>
+			<% if @item.persisted? %>
+				<%= link_to 'Show', item %> |
+			<% end %>
+			<%= link_to 'Back', items_path %>
+		</div>
+	</div>
+  
+<% end %>

@@ -1,0 +1,56 @@
+# == Schema Information
+#
+# Table name: items
+#
+#  id                :integer          not null, primary key
+#  number            :integer
+#  release_date      :datetime
+#  name              :string
+#  description       :text
+#  style             :string
+#  abv               :decimal(, )
+#  case_vol          :integer
+#  can_limit         :integer
+#  price             :decimal(, )
+#  additional        :text
+#  canning_date      :datetime
+#  canning_phrase    :string
+#  label_inspiration :text
+#  instagram_url     :string
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: 1
+  release_date: 2018-02-22 14:31:26
+  name: MyString
+  description: MyText
+  style: MyString
+  abv: 9.99
+  case_vol: 1
+  can_limit: 1
+  price: 9.99
+  additional: MyText
+  canning_date: 2018-02-22 14:31:26
+  canning_phrase: MyString
+  label_inspiration: MyText
+  instagram_url: MyString
+
+two:
+  number: 1
+  release_date: 2018-02-22 14:31:26
+  name: MyString
+  description: MyText
+  style: MyString
+  abv: 9.99
+  case_vol: 1
+  can_limit: 1
+  price: 9.99
+  additional: MyText
+  canning_date: 2018-02-22 14:31:26
+  canning_phrase: MyString
+  label_inspiration: MyText
+  instagram_url: MyString

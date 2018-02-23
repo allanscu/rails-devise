@@ -53,11 +53,17 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'bootstrap', '~> 4.0.0'
 gem 'devise'
 gem 'high_voltage'
 gem 'jquery-rails'
 gem 'pg', '~> 0.18'
+gem 'bootstrap'
+
+# Annotate schema into model file
+gem 'annotate'
+
+# Friendly_ID
+gem 'friendly_id', '~> 5.1.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
 
 group :development do
   gem 'better_errors'
