@@ -1,35 +1,44 @@
 <% provide(:page_title, @item.name) %>
 
 <div class="row">
-	<div class="col-md-10 col-lg-8 text-center">
+	<div class="col-4">
+		<%= @item.instagram_url.html_safe %>
+	</div>
+	<div class="col-8">
 		<h1><%= @item.name %></h1>
 		<h6><%= @item.release_date.strftime("%A, %B %d, %Y") %></h6>
 		<%= @item.description %>
-		<br />
-		<br />
-		<%= @item.style %>
-		<br />
-		<%= @item.abv %>
-		<br />
-		<%= @item.case_vol %>
-		<br />
-		<%= @item.can_limit %>
-		<br />
-		<%= @item.price %>
-		<br />
-		<%= @item.additional %>
-		<br />
-		<%= @item.canning_date.strftime("%A, %B %d, %Y") %>
-		<br />
-		<%= @item.canning_phrase %>
-		<br />
-		<%= @item.label_inspiration %>
-		<br />
-		<br />
-		<br />
-		<%= @item.instagram_url.html_safe %>
+		<div class="col-12">
+		</div>
+		<div class="col-12">
+			<div class="col-6">
+				<%= @item.abv %>% ABV
+			</div>
+			<div class="col-6">
+				<%= @item.style %>
+			</div>
+		</div>
+		<div class="col-12">
+			<div class="col-3">
+				<%= @item.case_vol %>
+			</div>
+			<div class="col-3">
+				<%= @item.can_limit %>
+			</div>
+			<div class="col-3">
+				<%= @item.price %>
+			</div>
+		</div>
+		<div class="col-12">
+			<%= @item.canning_date.strftime("%A, %B %d, %Y") %>
+			</br>
+			<%= @item.additional %>
+			</br>
+			<%= @item.label_inspiration %>
+		</div>
 	</div>
 </div>
+		
 
 
 <%= link_to 'Edit', edit_item_path(@item) %> |
