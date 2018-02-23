@@ -19,12 +19,15 @@
 #  instagram_url     :string
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
+#  slug              :string
+#  company_id        :integer
 #
 
 class Item < ApplicationRecord
 	extend FriendlyId
 	friendly_id :name, use: :slugged
 
+	belongs_to :company
 	#belongs_to :user
   
 end

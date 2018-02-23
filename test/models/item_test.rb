@@ -19,6 +19,8 @@
 #  instagram_url     :string
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
+#  slug              :string
+#  company_id        :integer
 #
 
 require 'test_helper'

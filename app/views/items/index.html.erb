@@ -4,6 +4,9 @@
       <div class="card-block">
       	<h4 class="card-title"><%= link_to item.name, item %></h4>
         <p class="card-text"><%= truncate(item.description, length: 130) %></p>
+        <h5 class="card-title">Company ID:  <%= item.company_id %></h5>
+        <%= link_to 'Edit', edit_item_path(item), class: 'btn btn-sm btn-warning' %>
+		<%= link_to 'Remove', item_path(item), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
       </div>
     </div>
   <% end %>

@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180223000813) do
+ActiveRecord::Schema.define(version: 20180223215006) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.string "address1"
+    t.string "address2"
+    t.string "address3"
+    t.string "city"
+    t.string "state_code"
+    t.string "zip_code"
+    t.string "country_code"
+    t.string "website"
+    t.string "email"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "formatted_address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
@@ -45,6 +63,7 @@ ActiveRecord::Schema.define(version: 20180223000813) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
+    t.integer "company_id"
   end
 
   create_table "users", force: :cascade do |t|

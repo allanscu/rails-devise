@@ -65,6 +65,9 @@ gem 'annotate'
 # Friendly_ID
 gem 'friendly_id', '~> 5.1.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
 
+# Geocoder to get lat and long
+gem 'geocoder'
+
 group :development do
   gem 'better_errors'
   gem 'hub', :require=>nil

@@ -48,8 +48,8 @@ Rails.application.configure do
     domain: Rails.application.secrets.domain_name,
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: Rails.application.secrets.email_provider_username,
-    password: Rails.application.secrets.email_provider_password
+    user_name: "app88907633@heroku.com",
+    password: "lj7eyoik8357"
   }
   # ActionMailer Config
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
@@ -68,4 +68,8 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  # Geocoder
+  ENV["GOOGLE_SERVER_API_KEY"] = 'AIzaSyBrLWquBSm5NFpoczpFcA4nn5lpaKmejOg'
+
 end

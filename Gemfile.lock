@@ -91,6 +91,7 @@ GEM
     ffi (1.9.22-java)
     friendly_id (5.1.0)
       activerecord (>= 4.0.0)
+    geocoder (1.4.5)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     high_voltage (3.0.0)
@@ -233,6 +234,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   friendly_id (~> 5.1.0)
+  geocoder
   high_voltage
   hub
   jbuilder (~> 2.5)
