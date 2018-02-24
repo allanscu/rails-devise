@@ -10,16 +10,18 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
-    @user = Item.friendly.find(params[:id])
+    @item = Item.friendly.find(params[:id])
   end
 
   # GET /items/new
   def new
     @item = Item.new
+    @company = Company.all.order(:name)
   end
 
   # GET /items/1/edit
   def edit
+    @company = Company.all.order(:name)
   end
 
   # POST /items

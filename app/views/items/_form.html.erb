@@ -106,9 +106,9 @@
 				    </div>
 			    </li>
 			    <li class="list-group-item">
-				    <div class="field">
-				      <%= form.label :company_id %>
-				      <%= form.number_field:company_id, class: 'form-control' %>
+				    <div class="dropdown">
+				    	<%= form.label :company_id %>
+				    	<%= form.collection_select(:company_id, @company, :id, :name, {prompt: "Select the associated company"}, {:required => true, class:'dropdown-item'}) %>
 				    </div>
 			    </li>
 			    <li class="list-group-item">

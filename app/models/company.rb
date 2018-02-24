@@ -21,10 +21,12 @@
 #
 
 class Company < ApplicationRecord
-
 	before_save :concatenate_formatted_address
 	geocoded_by :concatenate_formatted_address
 	after_validation :geocode, if: ->(obj){ obj.concatenate_formatted_address.present? }
+
+	extend FriendlyId
+	friendly_id :name, use: :slugged
 
 	has_many :items
 

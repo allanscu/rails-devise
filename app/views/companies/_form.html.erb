@@ -77,13 +77,13 @@
           <li class="list-group-item">
             <div class="field">
                 <%= form.label :website %>
-                <%= form.text_field :website, id: :company_website, required: true, class: 'form-control' %>
+                <%= form.text_field :website, id: :company_website, required: false, class: 'form-control' %>
             </div>
           </li>
           <li class="list-group-item">
             <div class="field">
                 <%= form.label :email %>
-                <%= form.text_field :email, id: :company_email, required: true, class: 'form-control' %>
+                <%= form.text_field :email, id: :company_email, required: false, class: 'form-control' %>
             </div>
           </li>
           <% if @company.persisted? %>
