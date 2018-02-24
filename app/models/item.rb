@@ -29,5 +29,9 @@ class Item < ApplicationRecord
 
 	belongs_to :company
 	#belongs_to :user
+
+	def should_generate_new_friendly_id?
+   		name_changed?
+	end
   
 end

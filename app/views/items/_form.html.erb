@@ -40,7 +40,7 @@
 			    <li class="list-group-item">
 				    <div class="field">
 				      <%= form.label :description %>
-				      <%= form.text_area :description, required: true, class: 'form-control' %>
+				      <%= form.text_area :description, required: false, class: 'form-control' %>
 				    </div>
 			    </li>
 			    <div class="list-group-item">
@@ -68,7 +68,7 @@
 			    <li class="list-group-item">
 				    <div class="field">
 				      <%= form.label :can_limit %>
-				      <%= form.number_field :can_limit, class: 'form-control', :min => '0' %>
+				      <%= form.number_field :can_limit, required: true, class: 'form-control', :min => '0' %>
 				    </div>
 			    </li>
 			    <li class="list-group-item">
@@ -80,29 +80,29 @@
 			    <li class="list-group-item">
 				    <div class="field">
 				      <%= form.label :additional %>
-				      <%= form.text_field :additional, class: 'form-control' %>
+				      <%= form.text_field :additional, required: false, class: 'form-control' %>
 				    </div>
 			    </li>
 			    <div class="list-group-item">
   					<%= form.label :canning_date %>
-  					<%= form.date_field :canning_date, class: 'form-control' %>
+  					<%= form.date_field :canning_date, required: false, class: 'form-control' %>
 				</div>
 				<li class="list-group-item">
 				    <div class="field">
 				      <%= form.label :canning_phrase %>
-				      <%= form.text_field :canning_phrase, class: 'form-control' %>
+				      <%= form.text_field :canning_phrase, required: false, class: 'form-control' %>
 				    </div>
 			    </li>
 			    <li class="list-group-item">
 				    <div class="field">
 				      <%= form.label :label_inspiration %>
-				      <%= form.text_area :label_inspiration, class: 'form-control' %>
+				      <%= form.text_area :label_inspiration, required: false, class: 'form-control' %>
 				    </div>
 			    </li>
 			    <li class="list-group-item">
 				    <div class="field">
 				      <%= form.label :instagram_url %>
-				      <%= form.text_field :instagram_url, class: 'form-control' %>
+				      <%= form.text_field :instagram_url, required: false, class: 'form-control' %>
 				    </div>
 			    </li>
 			    <li class="list-group-item">

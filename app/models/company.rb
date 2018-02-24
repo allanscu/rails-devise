@@ -34,4 +34,8 @@ class Company < ApplicationRecord
 		self.formatted_address = "#{address1} #{address2} #{address3} #{city} #{state_code} #{zip_code} #{country_code}"
 	end
 
+	def should_generate_new_friendly_id?
+   		name_changed?
+	end
+
 end
