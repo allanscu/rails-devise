@@ -1,0 +1,69 @@
+<div class="collapse" id="exCollapsingNavbar">
+  <div class="collapse-bg p-a-1">
+    <div class='card'>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <%= link_to 'About', page_path('about'), class: 'nav-link' %>
+        </li>
+        <li class="list-group-item">
+          <%= link_to 'Contact', page_path('contact'), class: 'nav-link' %>
+        </li>
+		    <% if user_signed_in? %>
+          <li class="list-group-item">  
+            <%= link_to 'My profile', user_path(current_user), class: "nav-link #{yield(:user)}" %>
+	        </li>
+          <li class="list-group-item">
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "nav-link" %>
+  	      </li>
+        <% else %>
+          <li class="list-group-item">
+            <%= link_to 'Sign in', new_user_session_path, class: "nav-link" %>
+          </li>
+          <li class="list-group-item">
+            <%= link_to 'Register', new_user_registration_path, class: "nav-link" %>
+          </li>
+		    <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar navbar-light bg-faded">
+  <div class='container'>
+    <a class='navbar-brand' href='/'>
+      Reeb<span class='light'>reeb</span>
+    </a>
+    <button class="navbar-toggler hidden-sm-up pull-xs-right" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
+      &#9776;
+    </button>
+    <ul class="nav navbar-nav pull-sm-right hidden-xs-down">
+      <li class="nav-item">
+        <li class='nav-item'><%= link_to 'Items', items_path, class: 'nav-link' %></li>
+      </li>
+      <li class="nav-item">
+        <li class='nav-item'><%= link_to 'About', page_path('about'), class: 'nav-link' %></li>
+      </li>
+      <li class="nav-item">
+        <li class='nav-item'><%= link_to 'Contact', page_path('contact'), class: 'nav-link' %></li>
+      </li>
+	  <% if user_signed_in? %>
+		  <li class="nav-item dropdown author-nav">
+        <a class="nav-link dropdown-toggle <%= yield(:user) %>" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= current_user.name %>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+   	      <%= link_to 'My profile', user_path(current_user), class: "dropdown-item" %>
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        </div>
+		  </li>
+    <% else %>
+      <li class="nav-item">
+        <li class='nav-item'><%= link_to 'Sign in', new_user_session_path, class: "nav-link" %></li>
+      </li>
+      <li class='nav-item'>
+        <%= link_to 'Register', new_user_registration_path, class: "nav-link" %>
+      </li>
+	  <% end %>
+    </ul>
+  </div>
+</nav>

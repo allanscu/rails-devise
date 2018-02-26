@@ -57,7 +57,7 @@ gem 'devise'
 gem 'high_voltage'
 gem 'jquery-rails'
 gem 'pg', '~> 0.18'
-gem 'bootstrap'
+gem 'bootstrap', '4.0.0.alpha3'
 
 # Annotate schema into model file
 gem 'annotate'
