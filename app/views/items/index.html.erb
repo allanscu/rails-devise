@@ -2,7 +2,7 @@
   <% @items.each do |item| %>
     <div class="card">
       <div class="card-block">
-      	<h4 class="card-title"><%= link_to item.name, item %></h4>
+      	<h4 class="card-title"><%= link_to item.name, company_item_path(item.company, item) %></h4>
         <p class="card-text"><%= truncate(item.description, length: 130) %></p>
         <h5 class="card-title"><%= item.company.name %></h5>
         <%= link_to 'Edit', edit_item_path(item), class: 'btn btn-sm btn-warning' %>

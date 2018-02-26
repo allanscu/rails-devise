@@ -6,7 +6,7 @@
 	</div>
 	<div class="col-8">
 		<h1><%= @item.name %></h1>
-		<h5><%= @item.company.name %></h5>
+		<h5><%= link_to(@item.company.name, company_path(@item.company)) %></h5>
 		<h6><%= @item.release_date.strftime("%A, %B %d, %Y") %></h6>
 		<%= @item.description %>
 		<div class="col-12">
