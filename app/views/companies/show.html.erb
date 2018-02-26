@@ -1,69 +1,36 @@
-<p id="notice"><%= notice %></p>
+<% provide(:page_title, @company.name) %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @company.name %>
-</p>
+<div class="row">
+  <div class="col-8">
+    <h1><%= @company.name %></h1>
+    <%= @company.address1 %>
+    <%= @company.address2 %>
+    <%= @company.address3 %>
+    <br />
+    <%= @company.city %> <%= @company.state_code %> <%= @company.zip_code %>
+    <br />
+    <%= link_to @company.website, @company.website %>
+    <br />
+    <%= @company.email %>
+    <div class="col-12">
+    </div>
+    <div class="col-12">
+    </div>
+  </div>
+  <div class="col-4">
+    Place holder for images & map
+  </div>
+</div>
 
-<p>
-  <strong>Address1:</strong>
-  <%= @company.address1 %>
-</p>
-
-<p>
-  <strong>Address2:</strong>
-  <%= @company.address2 %>
-</p>
-
-<p>
-  <strong>Address3:</strong>
-  <%= @company.address3 %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @company.city %>
-</p>
-
-<p>
-  <strong>State code:</strong>
-  <%= @company.state_code %>
-</p>
-
-<p>
-  <strong>Zip code:</strong>
-  <%= @company.zip_code %>
-</p>
-
-<p>
-  <strong>Formatted address:</strong>
-  <%= @company.formatted_address %>
-</p>
-
-<p>
-  <strong>Longitude:</strong>
-  <%= @company.longitude %>
-</p>
-
-<p>
-  <strong>Website:</strong>
-  <%= @company.website %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @company.email %>
-</p>
-
-<p>
-  <strong>Latitude:</strong>
-  <%= @company.latitude %>
-</p>
-
-<p>
-  <strong>Longitude:</strong>
-  <%= @company.longitude %>
-</p>
+<div class="row">
+  <div class="col-12">
+    <% @company.items.each do |i| %>
+      <%= i.name %>
+      <br />
+    <% end %>
+  </div>
+</div>
+    
 
 <%= link_to 'Edit', edit_company_path(@company) %> |
 <%= link_to 'Back', companies_path %>
