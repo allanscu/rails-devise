@@ -48,8 +48,8 @@ Rails.application.configure do
     domain: Rails.application.secrets.domain_name,
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: "app88907633@heroku.com",
-    password: "lj7eyoik8357"
+    user_name: ENV["SENDGRID_USERNAME"],
+    password: ENV["SENDGRID_PASSWORD"]
   }
   # ActionMailer Config
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
