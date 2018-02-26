@@ -68,6 +68,9 @@ gem 'friendly_id', '~> 5.1.0' # Note: You MUST use 5.0.0 or greater for Rails 4.
 # Geocoder to get lat and long
 gem 'geocoder'
 
+# dotenv to define development and test environmental variables
+gem 'dotenv-rails', groups: [:development, :test]
+
 group :development do
   gem 'better_errors'
   gem 'hub', :require=>nil
