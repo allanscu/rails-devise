@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   root to: 'items#index'
   devise_for :users
   resources :users
-  resources :items
+  resources :items do
+  	put 'active' => 'items#active', on: :member
+    put 'inactive' => 'items#inactive', on: :member
+  end
   resources :companies do
   	resources :items
   end

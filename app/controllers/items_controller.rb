@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :active, :inactive]
   before_action :authenticate_user!, :except => [:show, :index]
 
   # GET /items
@@ -23,6 +23,16 @@ class ItemsController < ApplicationController
   # GET /items/1/edit
   def edit
     @company = Company.all.order(:name)
+  end
+
+  def active
+    @item.active
+    redirect_to items_url
+  end
+    
+  def inactive
+    @item.inactive
+    redirect_to items_url
   end
 
   # POST /items

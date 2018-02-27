@@ -28,10 +28,17 @@ class Item < ApplicationRecord
 	friendly_id :name, use: :slugged
 
 	belongs_to :company
-	#belongs_to :user
 
 	def should_generate_new_friendly_id?
    		name_changed?
+	end
+
+	def active
+		update(active: true, active_at: Time.now)
+	end
+
+	def inactive
+		update(active: false, active_at: nil)
 	end
   
 end
