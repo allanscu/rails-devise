@@ -1,20 +1,17 @@
 .items.index {
   .card {
-    border: none;
+    border-style: solid;
     border-radius: 0;
-    height: 2400px;
+    height: 400px;
+    margin-top: 100px;
     margin-bottom: 20px;
-	  background-color: black;
+	  background-color: white;
 
     .card-topper {
-      height: 1200px;
+      height: 200px;
       width: 100%;
       background-size: cover;
       background-position: center;
-    }
-
-    .card-block {
-      padding: 10px;
     }
     
     .card-title {
@@ -29,6 +26,10 @@
     .card-text {
       font-size: 0.9rem;
       color: black;
+    }
+
+    .card-block {
+      padding: 10px;
     }
   }
 }
