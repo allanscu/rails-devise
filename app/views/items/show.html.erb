@@ -31,8 +31,6 @@
 			</div>
 		</div>
 		<div class="col-12">
-			<%# @item.canning_date.strftime("%A, %B %d, %Y") %>
-			</br>
 			<%= @item.additional %>
 			</br>
 			<%= @item.label_inspiration %>
@@ -41,6 +39,7 @@
 </div>
 		
 
-
-<%= link_to 'Edit', edit_item_path(@item) %> |
+<% if current_user.try(:admin?) %>
+	<%= link_to 'Edit', edit_item_path(@item) %> |
+<% end %>
 <%= link_to 'Back', items_path %>
