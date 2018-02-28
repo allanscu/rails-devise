@@ -1,39 +1,24 @@
 <% provide(:page_title, @item.name) %>
 
 <div class="row">
-	<div class="col-4">
-		<%= @item.instagram_embed.html_safe %>
+	<div class='col-md-8'>
+		<div class="card">
+			<div class="card-block">
+				<h1><%= @item.name %></h1>
+				<h2><%= @item.company.name %></h2>
+				<h6><%= @item.release_date.strftime("%A, %B %d, %Y") %></h6>
+			</div>
+			<div class="card-block">
+				<%= @item.abv %>
+			</div>
+		</div>
 	</div>
-	<div class="col-8">
-		<h1><%= @item.name %></h1>
-		<h5><%= link_to(@item.company.name, company_path(@item.company)) %></h5>
-		<h6><%= @item.release_date.strftime("%A, %B %d, %Y") %></h6>
-		<%= @item.description %>
-		<div class="col-12">
-		</div>
-		<div class="col-12">
-			<div class="col-6">
-				<%= @item.abv %>% ABV
+
+	<div class="col-md-4">
+		<div class="card">
+			<div class="card-block">
+				<%= @item.instagram_embed.html_safe %>
 			</div>
-			<div class="col-6">
-				<%= @item.style %>
-			</div>
-		</div>
-		<div class="col-12">
-			<div class="col-3">
-				<%= @item.case_vol %>
-			</div>
-			<div class="col-3">
-				<%= @item.can_limit %>
-			</div>
-			<div class="col-3">
-				<%= @item.price %>
-			</div>
-		</div>
-		<div class="col-12">
-			<%= @item.additional %>
-			<br />
-			<%= @item.label_inspiration %>
 		</div>
 	</div>
 </div>

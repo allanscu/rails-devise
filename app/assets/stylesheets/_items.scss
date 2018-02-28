@@ -33,3 +33,39 @@
     }
   }
 }
+
+.items.show {
+  .card {
+    border-style: solid;
+    border-radius: 0;
+    height: 470px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    background-color: white;
+
+    .card-topper {
+      height: 200px;
+      width: 100%;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .card-title {
+      font-size: 1.3rem;
+      margin-bottom: 0;
+      a {
+        color: black;
+        text-decoration: none;
+      }
+    }
+
+    .card-text {
+      font-size: 0.9rem;
+      color: black;
+    }
+
+    .card-block {
+      padding: 10px;
+    }
+  }
+}
