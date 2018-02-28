@@ -106,6 +106,18 @@
 				    </div>
 			    </li>
 			    <li class="list-group-item">
+					<div class="field">
+				      <%= form.label :instagram_embed %>
+				      <%= form.text_field :instagram_embed, required: false, class: 'form-control' %>
+				    </div>
+			    </li>
+			    <li class="list-group-item">
+					<div class="field">
+				      <%= form.label :instagram_image %>
+				      <%= form.text_field :instagram_image, required: false, class: 'form-control' %>
+				    </div>
+			    </li>
+			    <li class="list-group-item">
 				    <div class="dropdown">
 				    	<%= form.label :company_id %>
 				    	<%= form.collection_select(:company_id, @company, :id, :name, {prompt: "Select the associated company"}, {:required => true, class:'dropdown-item'}) %>
