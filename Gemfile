@@ -71,6 +71,11 @@ gem 'geocoder'
 # dotenv to define development and test environmental variables
 gem 'dotenv-rails', groups: [:development, :test]
 
+# for charts
+gem "chartkick"
+gem 'groupdate'
+gem 'active_median'
+
 group :development do
   gem 'better_errors'
   gem 'hub', :require=>nil
