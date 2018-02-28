@@ -23,12 +23,14 @@
 						      <%= f.text_field :email, value: current_user.email, class: 'form-control' %>
 						    </div>
 						</li>
-						<li class="list-group-item">
-						    <div class="field">
-						      <%= f.label :admin %>
-						      <%= f.check_box :admin, value: current_user.admin, class: 'form-control' %>
-						    </div>
-						</li>
+						<% if current_user.admin? %>
+							<li class="list-group-item">
+							    <div class="field">
+							      <%= f.label :admin %>
+							      <%= f.check_box :admin, value: current_user.admin, class: 'form-control' %>
+							    </div>
+							</li>
+						<% end %>
 						<li class="list-group-item">
 							<%= f.submit "Update info", class: 'btn btn-primary' %>
 						</li>
