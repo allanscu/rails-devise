@@ -55,6 +55,16 @@
 					</div>
 				</div>
 			</div>
+
+			<div class='col-md-12'>
+				<div class="card-graph">
+					<div class="card-block-graph">
+						<h3>Price per can</h3>
+						<%= column_chart Item.limit(5).pluck(:name, :price), xtitle: "Name", ytitle: "Price"%>
+					</div>
+				</div>
+			</div>
+
 		</div>
 	</div>
 
