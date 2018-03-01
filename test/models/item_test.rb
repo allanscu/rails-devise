@@ -21,6 +21,10 @@
 #  updated_at        :datetime         not null
 #  slug              :string
 #  company_id        :integer
+#  active            :boolean          default(FALSE)
+#  active_at         :datetime
+#  instagram_embed   :string
+#  instagram_image   :string
 #
 
 require 'test_helper'

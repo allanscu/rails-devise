@@ -35,10 +35,22 @@
 }
 
 .items.show {
+  h1 {
+    font-size: 36px;
+  }
+
+  h2 {
+    font-size: 14px;
+  }
+
+  h3 {
+    font-size: 12px;
+  }
+
   .card {
     border-style: solid;
     border-radius: 0;
-    height: 470px;
+    height: 800px;
     margin-top: 50px;
     margin-bottom: 20px;
     background-color: white;
@@ -65,6 +77,32 @@
     }
 
     .card-block {
+      padding: 10px;
+    }
+  }
+
+  .card-stat {
+    border:1px solid #E5E5E5;
+    border-radius: 0;
+    height: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+
+    .card-block-stat {
+      padding: 10px;
+    }
+  }
+
+  .card-graph {
+    border:1px solid #E5E5E5;
+    border-radius: 0;
+    height: 360px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+
+    .card-block-graph {
       padding: 10px;
     }
   }

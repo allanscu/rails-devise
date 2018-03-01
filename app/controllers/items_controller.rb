@@ -12,6 +12,8 @@ class ItemsController < ApplicationController
   # GET /items/1.json
   def show
     @item = Item.friendly.find(params[:id])
+
+    @item_avg_abv = Item.average(:abv)
   end
 
   # GET /items/new

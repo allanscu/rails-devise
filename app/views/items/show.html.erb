@@ -6,11 +6,52 @@
 			<div class="card-block">
 				<h1><%= @item.name %></h1>
 				<h2><%= @item.company.name %></h2>
-				<h6><%= @item.release_date.strftime("%A, %B %d, %Y") %></h6>
+				<h3><%= @item.release_date.strftime("%A, %B %d, %Y") %></h3>
 			</div>
 
-			<div class="card-block">
-				<%= column_chart abv_avg_chart, legend: {position: 'none'} %>
+			<div class='col-md-12'>
+				<div class="card-stat">
+					<div class="card-block-stat">
+						<h4><%= @item.style %></h4>
+						<%= @item.description %>
+					</div>
+				</div>
+			</div>
+
+			<div class='col-md-4'>
+				<div class="card-stat">
+					<div class="card-block-stat">
+						<h5>ABV</h5>
+						<%= @item.abv %>%
+					</div>
+				</div>
+			</div>
+
+			<div class='col-md-4'>
+				<div class="card-stat">
+					<div class="card-block-stat">
+						<h5>Price per 4-pack</h5>
+						<%= number_to_currency(@item.price * 4) %>
+					</div>
+				</div>
+			</div>
+
+			<div class='col-md-4'>
+				<div class="card-stat">
+					<div class="card-block-stat">
+						<h5>Limit</h5>
+						<%= @item.can_limit %> cans
+					</div>
+				</div>
+			</div>
+
+			<div class='col-md-12'>
+				<div class="card-graph">
+					<div class="card-block-graph">
+						<h3>ABV</h3>
+						<%= column_chart abv_avg_chart, legend: {position: 'none'} %>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

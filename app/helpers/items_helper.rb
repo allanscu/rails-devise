@@ -4,8 +4,8 @@ module ItemsHelper
 		[
       		{
       			data: {
-      				"#{@item.name}": @item.abv,
-      				"Avg ABV": 7.2
+      				"#{@item.name}": "#{@item.abv}",
+      				"#{@item.company.name} avg": @item_avg_abv
       			}
       		}
     	]
