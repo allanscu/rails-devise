@@ -7,27 +7,18 @@
 				<h1><%= @item.name %></h1>
 				<h2><%= @item.company.name %></h2>
 				<h3><%= @item.release_date.strftime("%A, %B %d, %Y") %></h3>
+				<h4><%= @item.style %></h4>	
 			</div>
 
-			<div class='col-md-12'>
-				<div class="card-style">
-					<div class="card-block-style">
-						<h4><%= @item.style %></h4>
-						<div>
-							<%= @item.description %>
-						</div>						
-						<% @item.hops.each do |h| %>
-							<div class='col-md-3'>
-								<div class="card-hop">
-									<div class="card-block-hop">
-										<%= h.name %>
-									</div>
-								</div>
-							</div>
-						<% end %>
+			<% @item.hops.each do |h| %>
+				<div class='col-md-3'>
+					<div class="card-hop">
+						<div class="card-block-hop">
+							<%= h.name %>
+						</div>
 					</div>
 				</div>
-			</div>
+			<% end %>
 
 			<div class='col-md-4'>
 				<div class="card-stat">
