@@ -60,7 +60,7 @@
 				<div class="card-graph">
 					<div class="card-block-graph">
 						<h3>Price per can</h3>
-						<%= column_chart Item.limit(5).pluck(:name, :price), xtitle: "Name", ytitle: "Price"%>
+						<%= column_chart Item.where("number <= #{@item.number}").limit(5).order(:number).pluck(:name, :price), xtitle: "Beer", ytitle: "Price per can"%>
 					</div>
 				</div>
 			</div>
