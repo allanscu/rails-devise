@@ -50,7 +50,7 @@
   .card {
     border-style: solid;
     border-radius: 0;
-    height: 800px;
+    height: 1000px;
     margin-top: 50px;
     margin-bottom: 20px;
     background-color: white;
@@ -105,5 +105,32 @@
     .card-block-graph {
       padding: 10px;
     }
+  }
+
+  .card-hop {
+      border:1px solid #E5E5E5;
+      border-radius: 0;
+      height: 100px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      background-color: white;
+      font-size: 12px;
+
+      .card-block-hop {
+        padding: 10px;
+      }
+  }
+
+    .card-style {
+      border:1px solid #E5E5E5;
+      border-radius: 0;
+      height: 200px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      background-color: white;
+
+      .card-block-style {
+        padding: 10px;
+      }
   }
 }

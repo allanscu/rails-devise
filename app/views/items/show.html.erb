@@ -10,10 +10,21 @@
 			</div>
 
 			<div class='col-md-12'>
-				<div class="card-stat">
-					<div class="card-block-stat">
+				<div class="card-style">
+					<div class="card-block-style">
 						<h4><%= @item.style %></h4>
-						<%= @item.description %>
+						<div>
+							<%= @item.description %>
+						</div>						
+						<% @item.hops.each do |h| %>
+							<div class='col-md-3'>
+								<div class="card-hop">
+									<div class="card-block-hop">
+										<%= h.name %>
+									</div>
+								</div>
+							</div>
+						<% end %>
 					</div>
 				</div>
 			</div>

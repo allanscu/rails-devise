@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'items#index'
   devise_for :users
 
+  resources :hops
   resources :users
   resources :items do
   	put 'active' => 'items#active', on: :member
