@@ -45,5 +45,9 @@ class Item < ApplicationRecord
 	def inactive
 		update(active: false, active_at: nil)
 	end
+
+	def remove_trailing_comma(str)
+    	str.nil? ? nil : str.chomp(",")
+	end
   
 end

@@ -72,9 +72,12 @@ gem 'geocoder'
 gem 'dotenv-rails', groups: [:development, :test]
 
 # for charts
-gem "chartkick"
+gem 'chartkick'
 gem 'groupdate'
 gem 'active_median'
+
+# SEO sitemap
+gem 'sitemap_generator'
 
 group :development do
   gem 'better_errors'
