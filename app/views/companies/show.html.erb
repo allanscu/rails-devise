@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="col-8">
-    <h1><%= @company.name %></h1>
+    <h1><%# @company.name %></h1>
     <%= @company.address1 %>
     <%= @company.address2 %>
     <%= @company.address3 %>
@@ -12,10 +12,6 @@
     <%= link_to @company.website, @company.website %>
     <br />
     <%= @company.email %><%= @company.slug %>
-    <div class="col-12">
-    </div>
-    <div class="col-12">
-    </div>
   </div>
   <div class="col-4">
     Place holder for images & map
@@ -23,9 +19,21 @@
 </div>
 
 <div class="row">
+  <div class="col-4">
+    Number of items:  <%= @company.items.count %>
+  </div>
+  <div class="col-4">
+    Last release date:  <%= adjusted_datetime.strftime("%B %d, %Y at %H:%M %p") %>
+  </div>
+  <div class="col-4">
+    Time since last release:  <%= distance_of_time_in_words(Time.now, @company.items.order(release_date: :asc).last.release_date, true) %>
+  </div>
+</div>
+
+<div class="row">
   <div class="col-12">
     <% @company.items.each do |i| %>
-      <%= link_to(i.name, company_item_path(i.company, i)) %>
+      <%= link_to(i.name, company_item_path(i.company, i)) %> - <%=  i.release_date %>
       <br />
     <% end %>
   </div>

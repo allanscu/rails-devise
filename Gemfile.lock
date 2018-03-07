@@ -91,6 +91,9 @@ GEM
     dotenv-rails (2.2.1)
       dotenv (= 2.2.1)
       railties (>= 3.2, < 5.2)
+    dotiw (4.0.0)
+      actionpack (>= 4)
+      i18n
     erubi (1.7.0)
     execjs (2.7.0)
     ffi (1.9.22)
@@ -245,6 +248,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   dotenv-rails
+  dotiw
   friendly_id (~> 5.1.0)
   geocoder
   groupdate

@@ -79,6 +79,9 @@ gem 'active_median'
 # SEO sitemap
 gem 'sitemap_generator'
 
+# Time syntax
+gem 'dotiw'
+
 group :development do
   gem 'better_errors'
   gem 'hub', :require=>nil
