@@ -38,6 +38,12 @@
             </div>
           </li>
           <li class="list-group-item">
+            <div class="dropdown">
+              <%= form.label :company_id %>
+              <%= form.collection_select(:company_id, @company, :id, :name, {prompt: "Select the associated company"}, {:required => true, class:'dropdown-item'}) %>
+            </div>
+          </li>
+          <li class="list-group-item">
             <div class="actions">
              <%= form.submit "Save statistic", class: 'btn btn-success btn-lg btn-block' %>
             </div>

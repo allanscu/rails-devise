@@ -17,10 +17,12 @@ class StatisticsController < ApplicationController
   # GET /statistics/new
   def new
     @statistic = Statistic.new
+    @company = Company.all.order(:name)
   end
 
   # GET /statistics/1/edit
   def edit
+    @company = Company.all.order(:name)
   end
 
   # POST /statistics
@@ -71,6 +73,6 @@ class StatisticsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def statistic_params
-      params.require(:statistic).permit(:name, :description)
+      params.require(:statistic).permit(:name, :description, :company_id)
     end
 end

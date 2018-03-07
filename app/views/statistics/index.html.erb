@@ -7,6 +7,7 @@
     <tr>
       <th>Name</th>
       <th>Description</th>
+      <th>Company</th>
       <th>Slug</th>
       <th colspan="3"></th>
     </tr>
@@ -17,9 +18,10 @@
       <tr>
         <td><%= statistic.name %></td>
         <td><%= statistic.description %></td>
+        <td><%= statistic.company_id %></td>
         <td><%= statistic.slug %></td>
-        <td><%= link_to 'Show', statistic %></td>
-        <td><%= link_to 'Edit', edit_statistic_path(statistic) %></td>
+        <td><%= link_to 'Show', company_statistic_path(statistic.company, statistic) %></td>
+        <td><%= link_to 'Edit', edit_company_statistic_path(statistic.company, statistic) %></td>
         <td><%= link_to 'Destroy', statistic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

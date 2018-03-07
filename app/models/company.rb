@@ -30,8 +30,7 @@ class Company < ApplicationRecord
 	friendly_id :name, use: :slugged
 
 	has_many :items
-
-	#has_many :statistics
+	has_many :statistics
 
 	def concatenate_formatted_address
 		self.formatted_address = "#{address1} #{address2} #{address3} #{city} #{state_code} #{zip_code} #{country_code}"

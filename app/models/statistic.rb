@@ -15,5 +15,5 @@ class Statistic < ApplicationRecord
 	extend FriendlyId
 	friendly_id :name, use: :slugged
 
-	#belongs_to :company
+	belongs_to :company
 end
