@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'items#index'
   devise_for :users
 
+  resources :statistics
   resources :hops
   resources :users
   resources :items do
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
   end
   resources :companies do
   	resources :items
+    resources :statistics
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

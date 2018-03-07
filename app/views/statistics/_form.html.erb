@@ -1,0 +1,61 @@
+<%= form_with(model: statistic, local: true) do |form| %>
+  <% if statistic.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(statistic.errors.count, "error") %> prohibited this statistic from being saved:</h2>
+
+      <ul>
+      <% statistic.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card"">
+        <div class="card-block">
+        <% if @statistic.new_record? %>
+            <h4 class="card-title">New statistic</h4>
+        <% else %>
+          <h4 class="card-title">
+            <b>Edit</b>
+            <span class="thin-text"><%= @statistic.name %></span>
+          </h4>
+        <% end %>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <div class="field">
+              <%= form.label :name %>
+              <%= form.text_field :name, required: true, class: 'form-control', :min => '0' %>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="field">
+              <%= form.label :description %>
+              <%= form.text_area :description, required: false, class: 'form-control', :min => '0' %>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="actions">
+             <%= form.submit "Save statistic", class: 'btn btn-success btn-lg btn-block' %>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+    <div class="row">
+    <div class="col-md-12">
+      <div class="card"">
+        <% if @statistic.persisted? %>
+          <%= link_to 'Show', statistic %> |
+        <% end %>
+        <%= link_to 'Back', statistics_path %>
+      </div>
+    </div>
+  </div>
+
+<% end %>
