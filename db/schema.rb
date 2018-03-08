@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180307213829) do
+ActiveRecord::Schema.define(version: 20180308045700) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 20180307213829) do
     t.datetime "active_at"
     t.string "instagram_embed"
     t.string "instagram_image"
+    t.integer "release_date_difference_seconds"
   end
 
   create_table "statistics", force: :cascade do |t|

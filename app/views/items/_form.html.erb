@@ -118,6 +118,12 @@
 				    </div>
 			    </li>
 			    <li class="list-group-item">
+					<div class="field">
+				      <%= form.label :release_date_difference_seconds %>
+				      <%= form.text_field :release_date_difference_seconds, required: false, class: 'form-control' %>
+				    </div>
+			    </li>
+			    <li class="list-group-item">
 				    <div class="dropdown">
 				    	<%= form.label :company_id %>
 				    	<%= form.collection_select(:company_id, @company, :id, :name, {prompt: "Select the associated company"}, {:required => true, class:'dropdown-item'}) %>
