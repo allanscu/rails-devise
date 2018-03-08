@@ -4,7 +4,7 @@
   <div class="col-12">
     <div class="card">
       <div class="card-block">
-        <h1><%= link_to @company.name, @company.website %></h1>
+        <h1><%= link_to @company.name, "http://#{@company.website}" %></h1>
       </div>
       <div class="col-md-12">
         <div class="card-stat">
@@ -29,7 +29,7 @@
         <div class="card-stat">
           <div class="card-block-stat">
             <h2>Time since</h2>
-            <h5><%= distance_of_time_in_words(Time.now, @company.items.order(release_date: :asc).last.release_date, true) %></h5>
+            <h5><%= distance_of_time_in_words(Time.now, @company.items.order(release_date: :asc).last.release_date, true) %> ago</h5>
           </div>
         </div> 
       </div>          
