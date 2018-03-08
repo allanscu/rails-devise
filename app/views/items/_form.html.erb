@@ -44,8 +44,9 @@
 				    </div>
 			    </li>
 			    <div class="list-group-item">
-  					<%= form.label :release_date %>
-  					<%= form.date_field :release_date, required: true, class: 'form-control' %>
+  					<%= form.label 'Release datetime local to company' %>
+  					<br />
+  					<%= form.datetime_select :release_date, required: true, class: 'form-control' %>
 				</div>
 				<li class="list-group-item">
 				    <div class="field">
@@ -73,8 +74,8 @@
 			    </li>
 			    <li class="list-group-item">
 				    <div class="field">
-				      <%= form.label :price %>
-				      <%= form.number_field :price, required: true, class: 'form-control', :step => '0.01', :min => '0' %>
+				      <%= form.label 'Price for 4-pack' %>
+				      <%= form.number_field :price_four_pack, required: true, class: 'form-control', :step => '0.01', :min => '0' %>
 				    </div>
 			    </li>
 			    <li class="list-group-item">
@@ -83,10 +84,6 @@
 				      <%= form.text_field :additional, required: false, class: 'form-control' %>
 				    </div>
 			    </li>
-			    <div class="list-group-item">
-  					<%= form.label :canning_date %>
-  					<%= form.date_field :canning_date, required: false, class: 'form-control' %>
-				</div>
 				<li class="list-group-item">
 				    <div class="field">
 				      <%= form.label :canning_phrase %>

@@ -29,6 +29,9 @@
 #
 
 class Item < ApplicationRecord
+	before_save :update_time_canning_date_to_release_date
+	before_save :convert_price_four_pack_to_one_can_price
+
 	extend FriendlyId
 	friendly_id :name, use: :slugged
 
@@ -50,5 +53,14 @@ class Item < ApplicationRecord
 	def remove_trailing_comma(str)
     	str.nil? ? nil : str.chomp(",")
 	end
-  
+
+	# This will automatically adjust the release_date which is local to the compnay to UTC and update the canning_date to be the same
+	def update_time_canning_date_to_release_date
+		self.canning_date = release_date
+	end
+
+	# This will allow the admin to enter the price of the 4 pack to 1 can
+	def convert_price_four_pack_to_one_can_price
+		self.price = price_four_pack/4
+	end
 end

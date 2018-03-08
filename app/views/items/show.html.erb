@@ -6,7 +6,7 @@
 			<div class="card-block">
 				<h1><%= @item.name %></h1>
 				<h2><%= link_to(@item.company.name, @item.company) %></h2>
-				<h3><%= @item.release_date.strftime("%A, %B %d, %Y") %></h3>
+				<h3><%= @item.release_date.localtime.strftime("%A, %B %d, %Y") %></h3>
 				<h4><%= @item.style %></h4>	
 			</div>
 
@@ -33,7 +33,7 @@
 				<div class="card-stat">
 					<div class="card-block-stat">
 						<h5>Price per 4-pack</h5>
-						<%= number_to_currency(@item.price * 4) %>
+						<%= number_to_currency(@item.price_four_pack) %>
 					</div>
 				</div>
 			</div>
@@ -59,8 +59,8 @@
 			<div class='col-md-12'>
 				<div class="card-graph">
 					<div class="card-block-graph">
-						<h3>Price per can</h3>
-						<%= column_chart Item.where("number <= #{@item.number}").limit(5).order(:number).pluck(:name, :price), xtitle: "Beer", ytitle: "Price per can"%>
+						<h3>Price per 4 pack</h3>
+						<%= column_chart Item.where("number <= #{@item.number}").limit(5).order(release_date: :desc).pluck(:name, :price_four_pack), xtitle: "Beer", ytitle: "Price per can"%>
 					</div>
 				</div>
 			</div>
