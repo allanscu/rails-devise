@@ -82,6 +82,9 @@ gem 'sitemap_generator'
 # Time syntax
 gem 'dotiw'
 
+# Calendar
+gem "simple_calendar", "~> 2.0"
+
 group :development do
   gem 'better_errors'
   gem 'hub', :require=>nil

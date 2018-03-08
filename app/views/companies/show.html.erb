@@ -1,39 +1,46 @@
 <% provide(:page_title, @company.name) %>
 
 <div class="row">
-  <div class="col-8">
-    <h1><%# @company.name %></h1>
-    <%= @company.address1 %>
-    <%= @company.address2 %>
-    <%= @company.address3 %>
-    <br />
-    <%= @company.city %> <%= @company.state_code %> <%= @company.zip_code %>
-    <br />
-    <%= link_to @company.website, @company.website %>
-    <br />
-    <%= @company.email %><%= @company.slug %>
-  </div>
-  <div class="col-4">
-    Place holder for images & map
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-4">
-    Number of items:  <%= @company.items.count %>
-  </div>
-  <div class="col-4">
-    Last release date:  <%= adjusted_datetime.strftime("%B %d, %Y at %H:%M %p") %>
-  </div>
-  <div class="col-4">
-    Time since last release:  <%= distance_of_time_in_words(Time.now, @company.items.order(release_date: :asc).last.release_date, true) %>
+  <div class="col-12">
+    <div class="card">
+      <div class="card-block">
+        <h1><%= link_to @company.name, @company.website %></h1>
+      </div>
+      <div class="col-md-12">
+        <div class="card-stat">
+          <div class="card-block-stat">
+            <h2>Chance of release today</h2>
+            <h1>High</h1>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <div class="card-stat">
+          <div class="card-block-stat">
+            <h2>Last release</h2>
+            <%= adjusted_datetime.strftime("%A") %>
+            <br />
+            <%= adjusted_datetime.strftime("%B %d, %Y at %H:%M %p") %>
+            <h3><%= @company.items.order(release_date: :asc).last.name %></h3>
+          </div>
+        </div> 
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <div class="card-stat">
+          <div class="card-block-stat">
+            <h2>Time since</h2>
+            <h5><%= distance_of_time_in_words(Time.now, @company.items.order(release_date: :asc).last.release_date, true) %></h5>
+          </div>
+        </div> 
+      </div>          
+    </div>
   </div>
 </div>
 
 <div class="row">
   <div class="col-12">
     <% @company.items.each do |i| %>
-      <%= link_to(i.name, company_item_path(i.company, i)) %> - <%=  i.release_date %>
+      <%= link_to(i.name, company_item_path(i.company, i)) %>
       <br />
     <% end %>
   </div>
