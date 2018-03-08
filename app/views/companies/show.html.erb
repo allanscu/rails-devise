@@ -21,7 +21,7 @@
             <%= adjusted_datetime.strftime("%A") %>
             <br />
             <%= adjusted_datetime.strftime("%B %d, %Y at %H:%M %p") %>
-            <h3><%= link_to @company.items.order(release_date: :asc).last.name, company_item_path(@company, @company.items.last)%></h3>
+            <h3><%= link_to @company.items.order(release_date: :asc).last.name, company_item_path(@company, @company.items.order(release_date: :asc).last)%></h3>
           </div>
         </div> 
       </div>
@@ -39,7 +39,7 @@
 
 <div class="row">
   <div class="col-12">
-    <% @company.items.each do |i| %>
+    <% @company.items.order(release_date: :desc).each do |i| %>
       <%= link_to(i.name, company_item_path(i.company, i)) %>
       <br />
     <% end %>
