@@ -26,6 +26,7 @@
 #  instagram_embed                 :string
 #  instagram_image                 :string
 #  release_date_difference_seconds :integer
+#  price_four_pack                 :decimal(, )
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
