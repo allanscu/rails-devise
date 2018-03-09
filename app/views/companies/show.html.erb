@@ -10,6 +10,7 @@
         <div class="card-stat">
           <div class="card-block-stat">
             <h2>Chance of release within 24 hours</h2>
+            <h5>Last updated:  <%= (Time.now - 10.minutes).strftime("%B %d, %Y %H:%M %p") %></h5>
             <%= render "guage_can" %>
           </div>
         </div>
@@ -34,7 +35,9 @@
     </div>
   </div>
 </div>
-
+<br />
+<br />
+<br />
 <%= render "items/item_card_index_listing" %>
     
 <% if current_user.try(:admin?) %>
