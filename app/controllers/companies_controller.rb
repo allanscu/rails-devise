@@ -12,6 +12,7 @@ class CompaniesController < ApplicationController
   # GET /companies/1.json
   def show
     @company = Company.friendly.find(params[:id])
+    @items = Item.all.order("release_date DESC")
   end
 
   # GET /companies/new

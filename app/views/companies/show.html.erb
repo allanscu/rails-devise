@@ -9,20 +9,10 @@
       <div class="col-md-12">
         <div class="card-stat">
           <div class="card-block-stat">
-            <h2>Chance of release today</h2>
-            <h1>High</h1>
+            <h2>Chance of release within 24 hours</h2>
+            <%= render "guage_can" %>
           </div>
         </div>
-      </div>
-      <div class="col-sm-12 col-md-6">
-        <div class="card-stat">
-          <div class="card-block-stat">
-            <h2>Last release</h2>
-            <h5><%= (@company.items.order(release_date: :asc).last.release_date).to_datetime.strftime("%A") %></h5>
-            <h5><%= (@company.items.order(release_date: :asc).last.release_date).to_datetime.strftime("%B %d, %Y at %H:%M %p") %></h5>
-            <h5><%= link_to @company.items.order(release_date: :asc).last.name, company_item_path(@company, @company.items.order(release_date: :asc).last)%></h5>
-          </div>
-        </div> 
       </div>
       <div class="col-sm-12 col-md-6">
         <div class="card-stat">
@@ -31,19 +21,21 @@
             <h5><%= distance_of_time_in_words(Time.now.utc, @company.items.order(release_date: :asc).last.release_date, true) %> ago</h5>
           </div>
         </div> 
-      </div>          
+      </div>      
+      <div class="col-sm-12 col-md-6">
+        <div class="card-stat">
+          <div class="card-block-stat">
+            <h2>Last release</h2>
+            <h5><%= (@company.items.order(release_date: :asc).last.release_date).to_datetime.strftime("%A, %B %d, %Y at %H:%M %p") %></h5>
+            <h5><%= link_to @company.items.order(release_date: :asc).last.name, company_item_path(@company, @company.items.order(release_date: :asc).last)%></h5>
+          </div>
+        </div> 
+      </div>
     </div>
   </div>
 </div>
 
-<div class="row">
-  <div class="col-12">
-    <% @company.items.order(release_date: :desc).each do |i| %>
-      <%= link_to(i.name, company_item_path(i.company, i)) %>
-      <br />
-    <% end %>
-  </div>
-</div>
+<%= render "items/item_card_index_listing" %>
     
 <% if current_user.try(:admin?) %>
   <%= link_to 'Edit', edit_company_path(@company) %> |
