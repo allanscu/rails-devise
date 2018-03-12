@@ -1,20 +1,29 @@
-Reeb Reeb
+ReebReeb
 ================
-Welcome to ReebReeb - a fanboy web application for Monkish Brewing Compnay and other breweries around the world.  The purpose of this project is to show a proof of work for the following languages and tools:
+Welcome to ReebReeb - a fanboy web application for Monkish Brewing Compnay and other breweries around the world.  ReebReeb is BeerBeer backwards.  The purpose of this project is to show a proof of work for the following languages and tools:
 - Rails 5.1.5
 - Ruby 2.5.0
 - PostgreSQL 10
 - Heroku
 - Puma web server
 - Git
-- Devise (User registration, password implementation, password recovery, user roles, email authentication)
-- Sendgrid (Outboud emails)
-- Google Charts (pretty charts and graphs)
-- FriendlyID (pretty URLs)
-- Sitemap and submission to Google for SEO
-
-Problems? Issues?
------------
+- Bootstrap 4
+	- For desktop, mobile and tablet UI/UX
+- Sass
+- Devise
+	- user registration
+	- password protection
+	- password recovery
+	- user roles
+	- email authentication
+- Sendgrid
+	- outboud emails
+- Google Charts
+	- pretty charts and graphs
+- FriendlyID
+	- pretty URLs
+- Sitemap
+	- submission to Google for SEO
 
 
 Ruby on Rails
@@ -25,23 +34,6 @@ This application requires:
 - Ruby 2.5.0
 - Rails 5.1.5
 
-Getting Started
----------------
-
-Documentation and Support
--------------------------
-
-Issues
--------------
-
-Similar Projects
-----------------
-
-Contributing
-------------
-
-Credits
--------
 
 License
 -------
