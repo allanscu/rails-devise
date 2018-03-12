@@ -1,0 +1,5 @@
+<p>Welcome <%= @email %>!</p>
+
+<p>Thanks for your registering with Reeb Reeb.  We'd like to make sure that this your correct email.  Can you please click the link below and confirm it?  Thanks!</p>
+
+<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
