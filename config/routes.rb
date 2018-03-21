@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root to: 'items#index'
+  #root to: 'items#index'
+  root :to => "companies#show", :id => '1'
+
   devise_for :users
 
   resources :statistics

@@ -6,7 +6,8 @@
       <div class="card-block">
         <h1><%= link_to @company.name, "http://#{@company.website}" %></h1>
       </div>
-      <div class="col-md-12">
+
+      <div class="col-sm-12 col-md-6">
         <div class="card-stat">
           <div class="card-block-stat">
             <h2>Chance of release within 24 hours</h2>
@@ -15,14 +16,7 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-12 col-md-6">
-        <div class="card-stat">
-          <div class="card-block-stat">
-            <h2>Time since last release</h2>
-            <h5><%= distance_of_time_in_words(Time.now.utc, @company.items.order(release_date: :asc).last.release_date, true) %> ago</h5>
-          </div>
-        </div> 
-      </div>      
+
       <div class="col-sm-12 col-md-6">
         <div class="card-stat">
           <div class="card-block-stat">
@@ -32,6 +26,24 @@
           </div>
         </div> 
       </div>
+
+      <div class="col-sm-12 col-md-6">
+        <div class="card-stat">
+          <div class="card-block-stat">
+            <h2>Time since last release</h2>
+            <h5><%= distance_of_time_in_words(Time.now.utc, @company.items.order(release_date: :asc).last.release_date, true) %> ago</h5>
+          </div>
+        </div> 
+      </div>
+
+      <div class="col-sm-12 col-md-6">
+        <div class="card-stat">
+          <div class="card-block-stat">
+            <h2>To be determined</h2>
+          </div>
+        </div> 
+      </div>
+
       <div class="col-sm-12 col-md-6">
         <div class="card-stat">
           <div class="card-block-stat">
