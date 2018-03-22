@@ -5,9 +5,6 @@
         <li class="list-group-item">
           <%= link_to 'About', page_path('about'), class: 'nav-link' %>
         </li>
-        <li class="list-group-item">
-          <%= link_to 'Contact', page_path('contact'), class: 'nav-link' %>
-        </li>
 		    <% if user_signed_in? %>
           <li class="list-group-item">  
             <%= link_to 'My profile', user_path(current_user), class: "nav-link #{yield(:user)}" %>
@@ -39,9 +36,6 @@
     <ul class="nav navbar-nav pull-sm-right hidden-xs-down">
       <li class="nav-item">
         <li class='nav-item'><%= link_to 'About', page_path('about'), class: 'nav-link' %></li>
-      </li>
-      <li class="nav-item">
-        <li class='nav-item'><%= link_to 'Contact', page_path('contact'), class: 'nav-link' %></li>
       </li>
 	  <% if user_signed_in? %>
 		  <li class="nav-item dropdown author-nav">

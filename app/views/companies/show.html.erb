@@ -11,8 +11,9 @@
         <div class="card-stat">
           <div class="card-block-stat">
             <h2>Last release</h2>
-            <h5><%= (@company.items.order(release_date: :asc).last.release_date).to_datetime.strftime("%A, %B %d, %Y at %H:%M %p") %></h5>
-            <h5><%= link_to @company.items.order(release_date: :asc).last.name, company_item_path(@company, @company.items.order(release_date: :asc).last)%></h5>
+            <h3><%= link_to @company.items.order(release_date: :asc).last.name, company_item_path(@company, @company.items.order(release_date: :asc).last)%></h3>
+            <h4><%= (@company.items.order(release_date: :asc).last.release_date).to_datetime.strftime("%A, %B %d, %Y at %H:%M %p") %></h4>
+            <h5>(<%= distance_of_time_in_words(Time.now.utc, @company.items.order(release_date: :asc).last.release_date, true) %> ago)</h5>
             <%= link_to(image_tag(@company.items.order(release_date: :asc).last.instagram_image), company_item_path(@company, @company.items.order(release_date: :asc).last)) %>
           </div>
         </div> 
@@ -21,8 +22,10 @@
       <div class="col-sm-12 col-md-6">
         <div class="card-stat">
           <div class="card-block-stat">
-            <h2>Time since last release</h2>
-            <h5><%= distance_of_time_in_words(Time.now.utc, @company.items.order(release_date: :asc).last.release_date, true) %> ago</h5>
+            <h2>Previous 5 releases</h2>
+            <% @items_last_5.each do |i| %>
+              <h3><%= link_to truncate(i.name, :length => 45), company_item_path(@company,i) %> (<%= i.style %>): <%= i.release_date.strftime("%a, %b %d, %Y") %></h3>
+            <% end %>
           </div>
         </div> 
       </div>
@@ -55,18 +58,7 @@
       </div>
 
       <div class="col-sm-12 col-md-6">
-        <div class="card-stat">
-          <div class="card-block-stat">
-            <h2>Other useless data</h2>
-            # of cans sold:  x
-            <br />
-            Gross sales to date: $xxxxxx
-            <br />
-            Most popular style:  
-            <br />
-            Most popular hop:  
-          </div>
-        </div> 
+        <%# render "companies_show_other_info" %>
       </div>
 
     </div>

@@ -7,20 +7,20 @@
   h2 {
     font-size: 16px;
     font-style: normal;
+    margin-bottom: 30px;
   }
 
   h3 {
-    font-size: 12px;
+    font-size: 14px;
     font-style: italic;
   }
 
   h4 {
-    font-size: 30px;
-    margin-top: -90px;
+    font-size: 12px;
   }
 
   h5 {
-    font-size: 12px;
+    font-size: 9px;
   }
 
   .card-company {
@@ -80,7 +80,7 @@
     }
 
     .card-block-stat img{
-      width: 50%;
+      width: 40%;
     }
   }
 }

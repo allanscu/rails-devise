@@ -13,6 +13,8 @@ class CompaniesController < ApplicationController
   def show
     @company = Company.friendly.find(params[:id])
     @items = Item.all.order("release_date DESC")
+
+    @items_last_5 = Item.order("release_date DESC").limit(5)
   end
 
   # GET /companies/new
