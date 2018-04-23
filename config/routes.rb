@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   #root to: 'items#index'
-  root :to => "companies#show", :id => '1'
+  root :to => 'companies#show', :id => '1'
 
   devise_for :users
 
