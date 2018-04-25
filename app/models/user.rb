@@ -17,6 +17,9 @@
 #  updated_at             :datetime         not null
 #  name                   :string
 #  admin                  :boolean          default(FALSE)
+#  confirmation_token     :string
+#  confirmed_at           :datetime
+#  confirmation_sent_at   :datetime
 #
 
 class User < ApplicationRecord

@@ -27,6 +27,7 @@
 #  instagram_image                 :string
 #  release_date_difference_seconds :integer
 #  price_four_pack                 :decimal(, )
+#  batch                           :integer
 #
 
 class Item < ApplicationRecord
@@ -34,10 +35,16 @@ class Item < ApplicationRecord
 	before_save :convert_price_four_pack_to_one_can_price
 
 	extend FriendlyId
-	friendly_id :name, use: :slugged
+	friendly_id :slug_candidates, use: :slugged
 
 	belongs_to :company
 	has_and_belongs_to_many :hops
+
+	def slug_candidates
+   		[
+    		[:name, :batch],
+   		]
+  	end
 
 	def should_generate_new_friendly_id?
    		name_changed?

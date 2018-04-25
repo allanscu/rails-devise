@@ -27,6 +27,7 @@
 #  instagram_image                 :string
 #  release_date_difference_seconds :integer
 #  price_four_pack                 :decimal(, )
+#  batch                           :integer
 #
 
 require 'test_helper'
