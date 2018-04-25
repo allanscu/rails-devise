@@ -39,6 +39,12 @@
 			    </li>
 			    <li class="list-group-item">
 				    <div class="field">
+				      <%= form.label :batch %>
+				      <%= form.number_field :batch, required: true, class: 'form-control', :step => '0.1', :min => '1' %>
+				    </div>
+			    </li>
+			    <li class="list-group-item">
+				    <div class="field">
 				      <%= form.label :description %>
 				      <%= form.text_area :description, required: false, class: 'form-control' %>
 				    </div>
