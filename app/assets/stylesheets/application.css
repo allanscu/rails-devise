@@ -1,0 +1,9 @@
+/*
+ *= require vendor
+ * require skins/theme
+ *= require pages/items
+ *= require pages/users
+ *= require pages/statistics
+ *= require pages/companies
+ *= require_self
+ */
