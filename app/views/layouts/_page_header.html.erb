@@ -11,10 +11,12 @@
             </span>
         </button>
         <!-- End Toggle Button -->
+
         <!-- BEGIN LOGO -->
         <a class="page-logo" href="/">
           <img src="<%= image_path('logo.png') %>" alt="Logo"> </a>
         <!-- END LOGO -->
+
         <!-- BEGIN SEARCH -->
         <form class="search" action="#" method="GET">
           <input type="name" class="form-control" name="query" placeholder="Search...">
@@ -23,8 +25,10 @@
           </a>
         </form>
         <!-- END SEARCH -->
+
         <!-- BEGIN TOPBAR ACTIONS -->
         <div class="topbar-actions">
+
           <!-- BEGIN GROUP NOTIFICATION -->
           <div class="btn-group-notification btn-group" id="header_notification_bar">
             <button type="button" class="btn btn-sm md-skip dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
@@ -84,6 +88,8 @@
             </ul>
           </div>
           <!-- END GROUP NOTIFICATION -->
+
+
           <!-- BEGIN GROUP INFORMATION -->
           <div class="btn-group-red btn-group">
             <button type="button" class="btn btn-sm md-skip dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
@@ -113,45 +119,56 @@
             </ul>
           </div>
           <!-- END GROUP INFORMATION -->
+
+
           <!-- BEGIN USER PROFILE -->
-          <div class="btn-group-img btn-group">
-            <button type="button" class="btn btn-sm md-skip dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-              <span>Hi, Marcus</span>
-              <img src="<%= image_path('avatar1.jpg') %>" alt=""> </button>
-            <ul class="dropdown-menu-v2" role="menu">
-              <li>
-                <a href="page_user_profile_1.html">
-                  <i class="icon-user"></i> My Profile
-                  <span class="badge badge-danger">1</span>
-                </a>
-              </li>
-              <li>
-                <a href="app_calendar.html">
-                  <i class="icon-calendar"></i> My Calendar </a>
-              </li>
-              <li>
-                <a href="app_inbox.html">
-                  <i class="icon-envelope-open"></i> My Inbox
-                  <span class="badge badge-danger"> 3 </span>
-                </a>
-              </li>
-              <li>
-                <a href="app_todo_2.html">
-                  <i class="icon-rocket"></i> My Tasks
-                  <span class="badge badge-success"> 7 </span>
-                </a>
-              </li>
-              <li class="divider"> </li>
-              <li>
-                <a href="page_user_lock_1.html">
-                  <i class="icon-lock"></i> Lock Screen </a>
-              </li>
-              <li>
-                <a href="page_user_login_1.html">
-                  <i class="icon-key"></i> Log Out </a>
-              </li>
-            </ul>
-          </div>
+          <% if user_signed_in? %>
+              <div class="btn-group-img btn-group">
+                <button type="button" class="btn btn-sm md-skip dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                  <span>Hi, <%= current_user.name %></span>
+                  <img src="<%= image_path('avatar1.jpg') %>" alt="">
+                </button>
+
+                <ul class="dropdown-menu-v2" role="menu">
+                  <li>
+                    <%= link_to raw('<i class="icon-user"></i> My Profile'), user_path(current_user) %>
+                  </li>
+                  <li>
+                    <a href="app_calendar.html">
+                      <i class="icon-calendar"></i> My Calendar
+                    </a>
+                  </li>
+                  <li>
+                    <a href="app_inbox.html">
+                      <i class="icon-envelope-open"></i> My Inbox
+                      <span class="badge badge-danger"> 3 </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="app_todo_2.html">
+                      <i class="icon-rocket"></i> My Tasks
+                      <span class="badge badge-success"> 7 </span>
+                    </a>
+                  </li>
+                  <li class="divider"> </li>
+                  <li>
+                    <a href="page_user_lock_1.html">
+                      <i class="icon-lock"></i> Lock Screen </a>
+                  </li>
+                  <li><%= link_to raw('<i class="icon-key"></i> Log Out </a>'), destroy_user_session_path, :method=>'delete', class: 'nav-link' %></li>
+                </ul>
+              </div>
+          <% else %>
+              <div class="btn-group-img btn-group">
+                <button type="button" class="btn btn-sm">
+                  <span><%= link_to 'Sign in', new_user_session_path %></span>
+                </button>
+                <button type="button" class="btn btn-sm md-skip dropdown-toggle">
+                  <span><%= link_to 'Sign up', new_user_registration_path %></span>
+                </button>
+              </div>
+          <% end %>
+
           <!-- END USER PROFILE -->
           <!-- BEGIN QUICK SIDEBAR TOGGLER -->
           <button type="button" class="quick-sidebar-toggler md-skip" data-toggle="collapse">
@@ -534,26 +551,11 @@
               </li>
               <li class="dropdown more-dropdown-sub">
                 <a href="javascript:;">
-                  <i class="icon-social-dribbble"></i> General </a>
+                  <i class="icon-social-dribbble"></i> About Us </a>
                 <ul class="dropdown-menu">
-                  <li>
-                    <a href="page_general_about.html"> About </a>
-                  </li>
-                  <li>
-                    <a href="page_general_contact.html"> Contact </a>
-                  </li>
-                  <li>
-                    <a href="page_general_portfolio_1.html"> Portfolio 1 </a>
-                  </li>
-                  <li>
-                    <a href="page_general_portfolio_2.html"> Portfolio 2 </a>
-                  </li>
-                  <li>
-                    <a href="page_general_portfolio_3.html"> Portfolio 3 </a>
-                  </li>
-                  <li>
-                    <a href="page_general_portfolio_4.html"> Portfolio 4 </a>
-                  </li>
+                  <li><%= link_to 'About', page_path('about') %></li>
+                  <li><%= link_to 'About', page_path('temp') %></li>
+                  <li><a href="page_general_contact.html"> Contact </a></li>
                 </ul>
               </li>
               <li class="dropdown more-dropdown-sub">
@@ -574,23 +576,11 @@
             </ul>
           </li>
           <li class="dropdown more-dropdown">
-            <a href="javascript:;" class="text-uppercase"> More </a>
+            <a href="javascript:;" class="text-uppercase"> About Us </a>
             <ul class="dropdown-menu">
-              <li>
-                <a href="#">Link 1</a>
-              </li>
-              <li>
-                <a href="#">Link 2</a>
-              </li>
-              <li>
-                <a href="#">Link 3</a>
-              </li>
-              <li>
-                <a href="#">Link 4</a>
-              </li>
-              <li>
-                <a href="#">Link 5</a>
-              </li>
+              <li><%= link_to 'About', page_path('about') %></li>
+              <li><a href="page_general_contact.html"> Contact </a></li>
+              <li><%= link_to 'Web Template', page_path('temp') %></li>
             </ul>
           </li>
         </ul>
