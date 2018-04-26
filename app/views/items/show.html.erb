@@ -7,7 +7,7 @@
 				<h1><%= @item.name %></h1>
 				<h2><%= link_to(@item.company.name, @item.company) %></h2>
 				<h3><%= @item.style %>, Batch <%= @item.batch %></h3>	
-				<h4><%= @item.release_date.localtime.strftime("%A, %B %d, %Y") %></h4>
+				<h4><%= @item.release_date.localtime.strftime("%A, %B %d, %Y") %> at <%= @item.release_date.localtime.strftime("%H:%M %p") %></h4>
 			</div>
 
 			<% @item.hops.each do |h| %>
