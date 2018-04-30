@@ -14,8 +14,16 @@ module RailsDevise
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+
 
     # Set timezone to Los Angeles
     config.time_zone = 'Pacific Time (US & Canada)'
+
+
+    # SASS-RAILS
+    config.sass.preferred_syntax = :sass
+    config.sass.line_comments = false
+    config.sass.cache = false
   end
 end
