@@ -4,9 +4,9 @@
       <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
 
       <ul>
-      <% company.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% company.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -14,7 +14,7 @@
 
   <div class="row">
     <div class="col-md-12">
-      <div class="card"">
+      <div class="card">
         <div class="card-block">
         <% if @company.new_record? %>
             <h4 class="card-title">New company</h4>
@@ -111,7 +111,7 @@
   </div>
   <div class="row">
     <div class="col-md-12">
-      <div class="card"">
+      <div class="card">
         <% if @company.persisted? %>
           <%= link_to 'Show', company %> |
         <% end %>

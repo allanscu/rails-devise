@@ -1,6 +1,8 @@
 class CompaniesController < ApplicationController
-  before_action :set_company, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, :except => [:show, :index]
+  add_breadcrumb 'Home', :root_path
+  before_action :set_company, only: [:show, :edit, :update, :destroy]
+
 
   # GET /companies
   # GET /companies.json
@@ -12,9 +14,8 @@ class CompaniesController < ApplicationController
   # GET /companies/1.json
   def show
     @company = Company.friendly.find(params[:id])
-    @items = Item.all.order("release_date DESC")
-
-    @items_last_5 = Item.order("release_date DESC").limit(5)
+    @items = Item.all.order('release_date DESC')
+    @items_last_5 = Item.order('release_date DESC').limit(5)
   end
 
   # GET /companies/new
@@ -70,6 +71,7 @@ class CompaniesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_company
       @company = Company.friendly.find(params[:id])
+      add_breadcrumb @company.name, company_path(@company)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

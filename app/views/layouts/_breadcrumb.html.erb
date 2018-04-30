@@ -1,9 +1,4 @@
 <div class="breadcrumbs">
-  <h1>Admin Dashboard 2</h1>
-  <ol class="breadcrumb">
-    <li>
-      <a href="<%= root_path %>">Home</a>
-    </li>
-    <li class="active">Dashboard</li>
-  </ol>
+  <%= render_breadcrumbs :builder => ::BreadcrumbsTitleBuilder %>
+  <%= render_breadcrumbs :builder => ::BreadcrumbsBuilder %>
 </div>

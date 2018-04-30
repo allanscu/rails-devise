@@ -59,6 +59,9 @@ gem 'dotiw'
 # Calendar
 gem 'simple_calendar', '~> 2.0'
 
+# breadcrumbs
+gem 'breadcrumbs_on_rails'
+
 group :development, :test do
 
 end

@@ -51,6 +51,7 @@ GEM
       erubi (>= 1.0.0)
       rack (>= 0.9.0)
     bindex (0.5.0)
+    breadcrumbs_on_rails (3.0.1)
     builder (3.2.3)
     chartkick (2.3.2)
     coderay (1.1.2)
@@ -208,6 +209,7 @@ DEPENDENCIES
   active_median
   annotate
   better_errors
+  breadcrumbs_on_rails
   chartkick
   devise
   dotenv-rails

@@ -1,18 +1,17 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy, :active, :inactive]
   before_action :authenticate_user!, :except => [:show, :index]
+  add_breadcrumb 'Home', :root_path
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :active, :inactive]
 
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all.order("release_date DESC")
+    @items = Item.all.order('release_date DESC')
   end
 
   # GET /items/1
   # GET /items/1.json
   def show
-    @item = Item.friendly.find(params[:id])
-
     @item_avg_abv = Item.average(:abv)
   end
 
@@ -80,7 +79,10 @@ class ItemsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_item
+      @company = Company.friendly.find(params[:company_id])
       @item = Item.friendly.find(params[:id])
+      add_breadcrumb @company.name, company_path(@company.slug)
+      add_breadcrumb @item.name, item_path(@company.slug, @item.slug)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
