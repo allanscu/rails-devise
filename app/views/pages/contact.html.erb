@@ -1,3 +1,7 @@
 <% content_for :title do %>Contact<% end %>
-<h3>Contact us!</h3>
+<%
+  add_breadcrumb 'Home', :root_path
+  add_breadcrumb 'Contact', '#'
+%>
+
 <%= mail_to "support@reebreeb.com", "support@reebreeb.com" %>

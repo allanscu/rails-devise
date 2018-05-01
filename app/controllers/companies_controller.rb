@@ -7,6 +7,7 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def index
+    add_breadcrumb 'Companies', '#'
     @companies = Company.all
   end
 
