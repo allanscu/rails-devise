@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+  <meta charset="utf-8" />
+  <title><%= yield(:page_title) %></title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <meta content="Preview page of Metronic Admin Theme #5 for statistics, charts, recent events and reports" name="description" />
+  <meta content="" name="author" />
+
+  <meta name="description" content="<%= content_for?(:description) ? yield(:description) : 'Reeb Reeb' %>">
+  <meta name="google-site-verification" content="QAxpVZPdhfUbT8Y8QWL13UuuCSyNwxwgQDjyn0C5O7k" />
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+  <link rel="shortcut icon" href="favicon.ico" />
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
+  <%= stylesheet_link_tag 'login', media: 'all', 'data-turbolinks-track' => 'reload' %>
+  <%= javascript_include_tag 'https://www.gstatic.com/charts/loader.js' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body class="login">
+  <!-- BEGIN LOGO -->
+  <div class="logo">
+    <a href="<%= root_path %>">
+      <img src="<%= image_path('logo-big.png') %>" alt="" />
+    </a>
+  </div>
+  <!-- END LOGO -->
+
+  <!-- BEGIN LOGIN -->
+  <div class="content">
+    <div class="<%= controller_name %> <%= action_name %>">
+      <%= yield %>
+    </div>
+  </div>
+
+  <!-- BEGIN FOOTER -->
+  <%= render :partial => 'layouts/page_footer' %>
+  <!-- END FOOTER -->
+
+<!-- END PAGE BASE CONTENT -->
+</body>
+
+</html>
