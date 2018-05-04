@@ -1,5 +1,6 @@
 /*
  *= require vendor
+ *= require pages/common
  *= require pages/items
  *= require pages/users
  *= require pages/statistics
