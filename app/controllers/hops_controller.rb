@@ -1,11 +1,13 @@
 class HopsController < ApplicationController
   before_action :authenticate_user!, :except => [:show, :index]
+  add_breadcrumb 'Home', :root_path
   before_action :set_hop, only: [:show, :edit, :update, :destroy]
 
   # GET /hops
   # GET /hops.json
   def index
     @hops = Hop.all
+    add_breadcrumb 'Hops', '#'
   end
 
   # GET /hops/1
@@ -67,6 +69,8 @@ class HopsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_hop
       @hop = Hop.friendly.find(params[:id])
+      add_breadcrumb 'Hops', hops_path
+      add_breadcrumb @hop.name, '#'
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

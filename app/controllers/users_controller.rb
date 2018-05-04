@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  add_breadcrumb 'Home', :root_path
 
   def index
     @users = User.all
+    add_breadcrumb 'Users', '#'
   end
 
   def edit
