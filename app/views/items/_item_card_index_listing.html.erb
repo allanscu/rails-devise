@@ -1,21 +1,54 @@
-<% @items.each do |item| %>
-  <div class='col-sm-6 col-lg-4'>
-    <div class="card">
-      <div class="card-topper" style='background-image: url(<%= item.instagram_image %>);'></div>
-      <div class="card-block">
-      	<h1><%= link_to truncate(item.name, :length => 35), company_item_path(item.company, item) %></h1>
-        <h2><%= link_to item.company.name, company_path(item.company) %></h2>
-        <h3><%= item.release_date.strftime("%A, %B %d, %Y") %></h3>
-        <% if current_user.try(:admin?) %>
-          <%= link_to 'Edit', edit_item_path(item), class: 'btn btn-sm btn-warning' %>
-          <% if item.active? %>
-            <td><%= link_to 'Inactive', inactive_item_path(item), method: :put, class: 'btn btn-sm btn-primary' %></td>
-          <% else %>
-            <td><%= link_to 'Active', active_item_path(item), method: :put, class: 'btn btn-sm btn-success' %></td>
-          <% end %>
-  		    <%= link_to 'Remove', item_path(item), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+<div class="portlet light portlet-fit bordered">
+  <div class="portlet-title">
+    <div class="caption">
+      <i class=" icon-layers font-green"></i>
+      <span class="caption-subject font-green bold uppercase">All Items</span>
+    </div>
+  </div>
+  <div class="portlet-body">
+    <div class="mt-element-card mt-element-overlay">
+      <div class="row">
+        <% @items.each do |item| %>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+              <div class="mt-card-item">
+                <div class="mt-card-avatar mt-overlay-1">
+                  <img src="<%= item.instagram_image %>">
+                  <div class="mt-overlay">
+                    <ul class="mt-info">
+                      <li>
+                        <a class="btn default btn-outline" href="#">
+                          <i class="icon-magnifier"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="btn default btn-outline" href="#">
+                          <i class="icon-link"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="mt-card-content">
+                  <h3 class="mt-card-name"><%= link_to truncate(item.name, :length => 35), company_item_path(item.company, item) %></h3>
+                  <p class="mt-card-desc font-grey-mint"><%= link_to item.company.name, company_path(item.company) %></p>
+                  <p class="small"><%= item.release_date.strftime('%A, %B %d, %Y') %></p>
+                </div>
+
+                <% if current_user.try(:admin?) %>
+                    <%= link_to 'Edit', edit_item_path(item), class: 'btn btn-sm btn-warning' %>
+                    <% if item.active? %>
+                        <td><%= link_to 'Inactive', inactive_item_path(item), method: :put, class: 'btn btn-sm btn-primary' %></td>
+                    <% else %>
+                        <td><%= link_to 'Active', active_item_path(item), method: :put, class: 'btn btn-sm btn-success' %></td>
+                    <% end %>
+                    <%= link_to 'Remove', item_path(item), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+                <% end %>
+              </div>
+            </div>
         <% end %>
+
       </div>
     </div>
   </div>
-<% end %>
+</div>
+

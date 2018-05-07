@@ -1,48 +1,9 @@
-.items.index {
-  h1 {
-    font-size: 16px;
-  }
-  h2 {
-    font-size: 12px;
-  }
-  h3 {
-    font-size: 12px;
-    font-style: italic;
-  }
+.mt-element-overlay .mt-overlay-1 img {
+  height: 250px;
+}
 
-  .card {
-    border-style: solid;
-    border-radius: 0;
-    height: 300px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-	  background-color: white;
-
-    .card-topper {
-      height: 200px;
-      width: 100%;
-      background-size: cover;
-      background-position: center;
-    }
-    
-    .card-title {
-      margin-bottom: 0;
-      a {
-        color: blue;
-        text-decoration: none;
-
-      }
-    }
-
-    .card-text {
-      font-size: 0.9rem;
-      color: black;
-    }
-
-    .card-block {
-      padding: 10px;
-    }
-  }
+.mt-element-card .mt-card-item .mt-card-content {
+  height: 345px;
 }
 
 .items.show {
