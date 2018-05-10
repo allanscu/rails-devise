@@ -1,3 +1,7 @@
+<p class="small">
+  Total: <%= @users.total_entries %> users
+</p>
+
 <div class="table-responsive">
   <table class="table table-striped">
     <thead>
@@ -17,4 +21,11 @@
     <% end %>
     </tbody>
   </table>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <%= render 'shared/page_size_control', name: @page_name, value: @page_value, count: @users.total_entries %>
+    <%= render 'shared/will_paginate', object: @users %>
+  </div>
 </div>

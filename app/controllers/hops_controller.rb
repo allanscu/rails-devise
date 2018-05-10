@@ -6,8 +6,13 @@ class HopsController < ApplicationController
   # GET /hops
   # GET /hops.json
   def index
-    @hops = Hop.all
     add_breadcrumb 'Hops', '#'
+    @hops = Hop.order(name: :asc)
+
+    page = params[:page].to_i < 1 ? 1 : params[:page].to_i
+    @page_name = 'items'
+    @page_value = per_page(@page_name)
+    @hops = @hops.paginate(page: page, per_page: @page_value)
   end
 
   # GET /hops/1

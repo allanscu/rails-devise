@@ -3,8 +3,13 @@ class UsersController < ApplicationController
   add_breadcrumb 'Home', :root_path
 
   def index
-    @users = User.all
     add_breadcrumb 'Users', '#'
+    @users = User.order(created_at: :desc)
+
+    page = params[:page].to_i < 1 ? 1 : params[:page].to_i
+    @page_name = 'items'
+    @page_value = per_page(@page_name)
+    @users = @users.paginate(page: page, per_page: @page_value)
   end
 
   def edit

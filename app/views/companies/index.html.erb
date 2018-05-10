@@ -1,5 +1,13 @@
 <p id="notice"><%= notice %></p>
 
+<p class="small">
+  Total: <%= @companies.count %> companies
+
+  <% if current_user.try(:admin?) %>
+      <%= link_to 'New Company', new_company_path, :class => 'btn btn-sm pull-right' %>
+  <% end %>
+</p>
+
 <div class="table-responsive">
   <table class="table table-striped">
     <thead>
@@ -48,11 +56,9 @@
   </table>
 </div>
 
-<div class="small">
-  Total: <%= @companies.count %> companies
+<div class="row">
+  <div class="col-sm-12">
+    <%= render 'shared/page_size_control', name: @page_name, value: @page_value, count: @companies.total_entries %>
+    <%= render 'shared/will_paginate', object: @companies %>
+  </div>
 </div>
-
-<br>
-<% if current_user.try(:admin?) %>
-  <%= link_to 'New Company', new_company_path %>
-<% end %>

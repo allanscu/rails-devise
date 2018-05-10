@@ -11,6 +11,7 @@
 // about supported directives.
 //
 
+//= require base/init.js
 //= require vendor
 //= require Chart.bundle
 //= require chartkick

@@ -62,6 +62,9 @@ gem 'simple_calendar', '~> 2.0'
 # breadcrumbs
 gem 'breadcrumbs_on_rails'
 
+# Pagination
+gem 'will_paginate', '~> 3.1', '>= 3.1.6'
+
 group :development, :test do
 
 end

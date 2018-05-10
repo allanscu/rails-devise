@@ -6,7 +6,20 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all.order('release_date DESC')
+    add_breadcrumb 'Items', '#'
+    @items = Item.order(release_date: :desc)
+
+    # @key_search = AppUtils.escape_search_query(params[:q])
+
+    # @items = @items.where("name ILIKE '%#{@key_search}%'
+    #                                 OR slug ILIKE '%#{@key_search}%'
+    #                                 OR address ILIKE '%#{@key_search}%'
+    #                                 OR website ILIKE '%#{@key_search}%'") unless @key_search.blank?
+
+    page = params[:page].to_i < 1 ? 1 : params[:page].to_i
+    @page_name = 'items'
+    @page_value = per_page(@page_name)
+    @items = @items.paginate(page: page, per_page: @page_value)
   end
 
   # GET /items/1

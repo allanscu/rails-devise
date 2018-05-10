@@ -8,15 +8,24 @@ class CompaniesController < ApplicationController
   # GET /companies.json
   def index
     add_breadcrumb 'Companies', '#'
-    @companies = Company.all
+    @companies = Company.order(name: :asc)
+    page = params[:page].to_i < 1 ? 1 : params[:page].to_i
+    @page_name = 'items'
+    @page_value = per_page(@page_name)
+    @companies = @companies.paginate(page: page, per_page: @page_value)
   end
 
   # GET /companies/1
   # GET /companies/1.json
   def show
     @company = Company.friendly.find(params[:id])
-    @items = Item.all.order('release_date DESC')
     @items_last_5 = Item.order('release_date DESC').limit(5)
+
+    @items = Item.order(release_date: :desc)
+    page = params[:page].to_i < 1 ? 1 : params[:page].to_i
+    @page_name = 'items'
+    @page_value = per_page(@page_name)
+    @items = @items.paginate(page: page, per_page: @page_value)
   end
 
   # GET /companies/new

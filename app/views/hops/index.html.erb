@@ -1,5 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+
+<p class="small">
+  Total: <%= @hops.total_entries %> hops
+
+  <%= link_to 'New Hop', new_hop_path, :class => 'btn btn-sm pull-right' %>
+</p>
+
 <div class="table-responsive">
   <table class="table table-striped">
     <thead>
@@ -28,6 +35,9 @@
   </table>
 </div>
 
-Total: <%= @hops.count %> hops
-
-<%= link_to 'New Hop', new_hop_path %>
+<div class="row">
+  <div class="col-sm-12">
+    <%= render 'shared/page_size_control', name: @page_name, value: @page_value, count: @hops.total_entries %>
+    <%= render 'shared/will_paginate', object: @hops %>
+  </div>
+</div>

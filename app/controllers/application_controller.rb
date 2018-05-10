@@ -6,6 +6,9 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   layout :layout_by_resource
 
+  def per_page(page_size_name = nil, page_size = MIN_PAGE_SIZE)
+    (cookies[page_size_name + '_per_page'] ? cookies[page_size_name + '_per_page'] :  page_size).to_i
+  end
 
   protected
 
